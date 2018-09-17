@@ -10,7 +10,27 @@ import UIKit
 
 class FormTableViewController: UITableViewController {
     
-    var presenter: FormPresenter! = FormPresenter(with: FormModelRemote.init(with: APILayer()))
+    var presenter: FormPresenter
+    
+    convenience init(presenter: FormPresenter) {
+        self.init(style: UITableViewStyle.plain)
+        self.presenter = presenter
+    }
+    
+    override init(style: UITableViewStyle) {
+        presenter = FormPresenter(with: FormModelRemote.init(with: APILayer()))
+        super.init(style: style)
+    }
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        presenter = FormPresenter(with: FormModelRemote.init(with: APILayer()))
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        presenter = FormPresenter(with: FormModelRemote.init(with: APILayer()))
+        super.init(coder: aDecoder)
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

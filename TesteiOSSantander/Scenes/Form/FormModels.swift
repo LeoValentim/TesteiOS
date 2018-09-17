@@ -33,10 +33,30 @@ class FormModelRemote: FormModel {
             
             self?.cells = cells.map({ return CellViewModel(from: $0) })
             completion(true)
-        }, onFailure: { error in
-            print("error: \(error)")
-            completion(false)
+            }, onFailure: { error in
+                print("error: \(error)")
+                completion(false)
         })
+    }
+}
+
+class FormModelTest: FormModel {
+    var cells: [CellViewModel] = []
+    
+    func getCells(completion: @escaping FormModel.GetCellsCompl) {
+        if let path = Bundle.main.path(forResource: "cells", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let form = try JSONDecoder().decode(Form.self, from: data)
+                
+                self.cells = form.cells?.map({ return CellViewModel(from: $0) }) ?? []
+                
+                completion(true)
+            } catch {
+                print("error: \(error)")
+                completion(false)
+            }
+        }
     }
 }
 

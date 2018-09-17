@@ -16,6 +16,14 @@ extension String {
         return emailTest.evaluate(with: self)
     }
     
+    var isValidPhone: Bool {
+        let numbersStr = self.numbers
+        if numbersStr.count >= 10 && numbersStr.count <= 11 {
+            return true
+        }
+        return false
+    }
+    
     var numbers: String {
         get {
             return self.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()

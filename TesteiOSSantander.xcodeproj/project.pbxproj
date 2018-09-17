@@ -25,6 +25,8 @@
 		044562F6212A45F0009915B1 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044562F5212A45F0009915B1 /* RadioButton.swift */; };
 		044562F8212A7358009915B1 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044562F7212A7358009915B1 /* UIImage+Color.swift */; };
 		044562FA212A883A009915B1 /* UIString+Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044562F9212A883A009915B1 /* UIString+Validation.swift */; };
+		044BFFE8214FC3B300A6838F /* ValidationTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044BFFE7214FC3B300A6838F /* ValidationTest.swift */; };
+		044BFFEC214FCC5D00A6838F /* cells.json in Resources */ = {isa = PBXBuildFile; fileRef = 044BFFEB214FCC5D00A6838F /* cells.json */; };
 		04560251212BB552004D4723 /* FundosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04560250212BB552004D4723 /* FundosViewController.swift */; };
 		04560253212BBBCB004D4723 /* Fund.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04560252212BBBCB004D4723 /* Fund.swift */; };
 		04560255212BBC6A004D4723 /* FundModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04560254212BBC6A004D4723 /* FundModels.swift */; };
@@ -83,6 +85,8 @@
 		044562F5212A45F0009915B1 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		044562F7212A7358009915B1 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		044562F9212A883A009915B1 /* UIString+Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIString+Validation.swift"; sourceTree = "<group>"; };
+		044BFFE7214FC3B300A6838F /* ValidationTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationTest.swift; sourceTree = "<group>"; };
+		044BFFEB214FCC5D00A6838F /* cells.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cells.json; sourceTree = "<group>"; };
 		04560247212BA4A2004D4723 /* DINPro-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Medium.otf"; sourceTree = "<group>"; };
 		04560248212BA4A3004D4723 /* DINPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINPro-Bold.otf"; sourceTree = "<group>"; };
 		04560249212BA4A4004D4723 /* DINNeuzeitGroteskStd-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DINNeuzeitGroteskStd-Light.otf"; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				0413C589211F6D1E00DF9D0C /* TesteiOSSantanderTests.swift */,
+				044BFFE7214FC3B300A6838F /* ValidationTest.swift */,
 				0413C58B211F6D1E00DF9D0C /* Info.plist */,
 			);
 			path = TesteiOSSantanderTests;
@@ -243,6 +248,22 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		044BFFE9214FCBF400A6838F /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				044BFFEA214FCC1100A6838F /* Json */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		044BFFEA214FCC1100A6838F /* Json */ = {
+			isa = PBXGroup;
+			children = (
+				044BFFEB214FCC5D00A6838F /* cells.json */,
+			);
+			path = Json;
+			sourceTree = "<group>";
+		};
 		04560246212BA0F9004D4723 /* Fund */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +286,7 @@
 		04D74D6E21208EB8009B89AC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				044BFFE9214FCBF400A6838F /* Tests */,
 				04D74D6F21208ECF009B89AC /* Fonts */,
 				0413C57B211F6D1E00DF9D0C /* Assets.xcassets */,
 			);
@@ -396,6 +418,7 @@
 				0456025C212BD70F004D4723 /* DINNeuzeitGroteskStd-BdCond.otf in Resources */,
 				0456025D212BD70F004D4723 /* DINNeuzeitGroteskStd-Light.otf in Resources */,
 				0456025E212BD70F004D4723 /* DINPro-Black.otf in Resources */,
+				044BFFEC214FCC5D00A6838F /* cells.json in Resources */,
 				0456025F212BD70F004D4723 /* DINPro-Bold.otf in Resources */,
 				04560260212BD70F004D4723 /* DINPro-Light.otf in Resources */,
 				04560261212BD70F004D4723 /* DINPro-Medium.otf in Resources */,
@@ -520,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				044BFFE8214FC3B300A6838F /* ValidationTest.swift in Sources */,
 				0413C58A211F6D1E00DF9D0C /* TesteiOSSantanderTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

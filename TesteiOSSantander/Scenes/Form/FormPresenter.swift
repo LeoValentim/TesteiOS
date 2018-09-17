@@ -62,6 +62,11 @@ class FormPresenter: NSObject {
     }
     
     func sendAction() {
+        let isValid = self.validFields()
+        delegate?.didValidateFields(isValid)
+    }
+    
+    func validFields() -> Bool {
         var isValid: Bool = true
         self.cells.forEach({ cell in
             guard let index = model.cells.index(where: { $0.id == cell.id }) else {
@@ -76,8 +81,8 @@ class FormPresenter: NSObject {
                         isValid = false
                     }
                 case .telNumber?:
-                    model.cells[index].isValid = !(cell.value?.isEmpty != false)
-                    if cell.value?.isEmpty != false {
+                    model.cells[index].isValid = cell.value?.isValidPhone == true
+                    if cell.value?.isValidPhone != true {
                         isValid = false
                     }
                 case .text?:
@@ -91,7 +96,7 @@ class FormPresenter: NSObject {
             }
         })
         
-        delegate?.didValidateFields(isValid)
+        return isValid
     }
     
     func registerTableCells(for tableView: UITableView) {

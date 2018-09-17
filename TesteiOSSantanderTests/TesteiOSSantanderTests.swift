@@ -11,9 +11,15 @@ import XCTest
 
 class TesteiOSSantanderTests: XCTestCase {
     
+    var formTableViewController: FormTableViewController!
+    
     override func setUp() {
         super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        
+        let formModel = FormModelTest()
+        let formPresenter = FormPresenter(with: formModel)
+        formTableViewController = FormTableViewController(presenter: formPresenter)
+        _ = formTableViewController.view
     }
     
     override func tearDown() {
@@ -21,16 +27,27 @@ class TesteiOSSantanderTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testValidFields() {
+        for i in 0...formTableViewController.presenter.model.cells.count {
+            guard let cell = formTableViewController.presenter.cell(for: i),
+                let id = cell.id else {
+                    continue
+            }
+            
+            if cell.type == .field {
+                switch cell.typefield {
+                case .email?:
+                    formTableViewController.presenter.changeValueCell(id: id, value: "teste@email.com")
+                case .telNumber?:
+                    formTableViewController.presenter.changeValueCell(id: id, value: "(11)99999-9999")
+                case .text?:
+                    formTableViewController.presenter.changeValueCell(id: id, value: "Nome")
+                default:
+                    break
+                }
+            }
         }
+        
+        XCTAssertEqual(formTableViewController.presenter.validFields(), true)
     }
-    
 }
